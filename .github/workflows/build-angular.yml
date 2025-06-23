@@ -21,7 +21,7 @@ jobs:
             - name: Instalar dependencias
               run: npm install
             - name: Compilar app de angular
-              run: npm tun build --prod
+              run: npm run build --prod
             - name: Guarfar artefactos del build en el dist
               uses: actions/upload-artifact@v4
               with:
