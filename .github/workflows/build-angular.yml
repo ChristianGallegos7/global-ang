@@ -13,7 +13,7 @@ jobs:
         
         steps:
             - name: Clonar Repositorio
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Instalar Nodejs
               uses: actions/setup-node@v4
               with:
@@ -23,7 +23,7 @@ jobs:
             - name: Compilar app de angular
               run: npm tun build --prod
             - name: Guarfar artefactos del build en el dist
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: angular-dist
                 path: dist/  
