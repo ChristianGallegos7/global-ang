@@ -1,0 +1,29 @@
+name: Build Angular App
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+      branches:
+            - master
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Clonar Repositorio
+              uses: actions/checkout@v3
+            - name: Instalar Nodejs
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - name: Instalar dependencias
+              run: npm install
+            - name: Compilar app de angular
+              run: npm tun build --prod
+            - name: Guarfar artefactos del build en el dist
+              uses: actions/upload-artifact@v3
+              with:
+                name: angular-dist
+                path: dist/  
